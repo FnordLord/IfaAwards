@@ -35,8 +35,8 @@ class PilotDistanceAwards extends Award
             'threshold' => $threshold,
         ]);
 
-        // Retrieve and sum the total distance flown by the user from all completed PIREPs
-        $pireps = $this->user->pireps()->where('state', '2'); // assuming 'accepted' status means completed
+        // Retrieve and sum the total distance flown by the user from all completed PIREPs, depending on whether the planned or actually flown distance is greater; problem here is that ACARS does not always reports the correct distance, which makes it difficult to calc the real flown distance
+        $pireps = $this->user->pireps()->where('state', '2'); // '2' state means completed
         $planned_distance = $pireps->sum('planned_distance');
         $flown_distance = $pireps->sum('distance');
         if ($flown_distance > $planned_distance) {
