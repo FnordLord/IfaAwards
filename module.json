@@ -1,0 +1,14 @@
+{
+    "name": "IfaAwards",
+    "alias": "ifaawards",
+    "description": "Plugin automatically issuing awards depending on statistical achievements from pilots",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\IfaAwards\\Providers\\AwardServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
